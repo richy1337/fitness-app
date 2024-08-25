@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-import ProgressBar from "./ProgressBar"
+import ProgressBar from "./ProgressBar";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import Navigation from "./Navigation";
-
 
 function Form() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,7 +14,7 @@ function Form() {
     <StepOne key="stepOne" />,
     <StepTwo key="stepTwo" />,
     <StepThree key="stepThree" />,
-    <StepFour key="stepFour" /> 
+    <StepFour key="stepFour" />,
   ];
 
   const incrementIndex = () => {
@@ -26,14 +25,20 @@ function Form() {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
-
   return (
-    <div className="flex flex-col min-h-screen font-inter bg-[#0E1729]">
-      <ProgressBar currentIndex={currentIndex}/>
+    <div className="flex flex-col min-h-screen font-inter bg-gradient-to-r from-[#0E1729] to-[#1E2A42] p-6">
+      <ProgressBar currentIndex={currentIndex} />
 
-      {steps[currentIndex]}
+      <div className="flex-grow flex flex-col items-center justify-center">
+        {steps[currentIndex]}
+      </div>
 
-      <Navigation steps={steps} currentIndex={currentIndex} incrementIndex={incrementIndex} decrementIndex={decrementIndex}/>
+      <Navigation
+        steps={steps}
+        currentIndex={currentIndex}
+        incrementIndex={incrementIndex}
+        decrementIndex={decrementIndex}
+      />
     </div>
   );
 }

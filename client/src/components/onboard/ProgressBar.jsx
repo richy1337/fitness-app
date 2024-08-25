@@ -1,10 +1,16 @@
 function ProgressBar({ currentIndex }) {
+  const totalSteps = 4;
+
   return (
-    <div class="flex justify-center space-x-2">
-      <div class="w-1/12 h-2 bg-[#4169e1] rounded-full"></div>
-      <div class="w-1/12 h-2 bg-[#4169e1] rounded-full"></div>
-      <div class="w-1/12 h-2 bg-[#4169e1] rounded-full"></div>
-      <div class="w-1/12 h-2 bg-gray-300 rounded-full"></div>
+    <div className="flex justify-center space-x-2">
+      {Array.from({ length: totalSteps }).map((_, index) => (
+        <div
+          key={index}
+          className={`w-1/12 h-2 rounded-full transition-all duration-500 ${
+            index <= currentIndex ? 'bg-[#4169e1]' : 'bg-gray-300'
+          }`}
+        ></div>
+      ))}
     </div>
   );
 }
