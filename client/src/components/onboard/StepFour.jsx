@@ -1,37 +1,39 @@
 import Button from "./Button";
 
-function StepFour() {
+function StepFour({ sex, setSex}) {
+
+  function handleSelect(event) {
+    setSex(event.target.value)
+  }
+
+  const buttonOptions = [
+    {ring:"ring-blue-400", description:"Male ♂", value:"male", link:"gender", className:"w-32 h-12"},
+    {ring:"ring-blue-400", description:"Female ♀", value:"female", link:"gender", className:"w-32 h-12"}
+  ]
+
   return (
-    <div className="flex-grow flex items-center justify-center">
-      <div className="mx-auto max-w-6xl px-12 mt-20">
-        <div className="flex flex-col gap-3">
-          <Button
-            text="text-sky-600"
-            ring="ring-gray-500"
-            description="Sedentary (little to no exercise)"
-            link="activity"
-          />
-          <Button
-            text="text-sky-600"
-            ring="ring-gray-500"
-            description="Lightly Active (light exercise 1-3 days/week)"
-            link="activity"
-          />
-          <Button
-            text="text-sky-600"
-            ring="ring-gray-500"
-            description="Moderatively Active (moderate exercise 3-5 days/week)"
-            link="activity"
-          />
-          <Button
-            text="text-sky-600"
-            ring="ring-gray-500"
-            description="Very Active (hard exercise 6-7 days/week)"
-            link="activity"
-          />
+    <>
+      <div className="flex-grow flex items-center justify-center">
+        <div className="max-w-6xl px-12">
+          <div className="text-center text-gray-400 mb-8">
+            <h1 className="text-2xl font-semibold">What is your sex?</h1>
+          </div>
+          <div className="flex justify-center gap-6">
+            {buttonOptions.map((option) => (
+              <Button
+                key={option.value}
+                ring={option.ring}
+                description={option.description}
+                value={option.value}
+                link="gender"
+                handleSelect={handleSelect}
+                isChecked={sex === option.value}  // Conditionally set the `checked` attribute
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
