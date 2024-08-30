@@ -1,15 +1,14 @@
 import Button from "./Button";
 
-function StepFour({ sex, setSex}) {
-
+function StepFour({ sex, setSex }) {
   function handleSelect(event) {
-    setSex(event.target.value)
+    setSex(event.target.value);
   }
 
   const buttonOptions = [
-    {ring:"ring-blue-400", description:"Male ♂", value:"male", link:"gender", className:"w-32 h-12"},
-    {ring:"ring-blue-400", description:"Female ♀", value:"female", link:"gender", className:"w-32 h-12"}
-  ]
+    { ring: "ring-blue-400", description: "Male ♂", value: "male" },
+    { ring: "ring-pink-400", description: "Female ♀", value: "female" },
+  ];
 
   return (
     <>
@@ -19,15 +18,14 @@ function StepFour({ sex, setSex}) {
             <h1 className="text-2xl font-semibold">What is your sex?</h1>
           </div>
           <div className="flex justify-center gap-6">
-            {buttonOptions.map((option) => (
+            {buttonOptions.map((option, index) => (
               <Button
-                key={option.value}
+                key={index}
                 ring={option.ring}
                 description={option.description}
                 value={option.value}
                 link="gender"
                 handleSelect={handleSelect}
-                isChecked={sex === option.value}  // Conditionally set the `checked` attribute
               />
             ))}
           </div>

@@ -1,9 +1,10 @@
+import Button from "./Button"
+
 function StepOne({ goal, setGoal }) {
   function handleSelect(event) {
-    setGoal(event.target.value);  // Update state based on selected value
+    setGoal(event.target.value); 
   }
 
-  // Define your button options
   const buttonOptions = [
     { ring: "ring-gray-500", description: "Maintain Weight", value: "maintain" },
     { ring: "ring-gray-500", description: "Mild Weight Loss", value: "mildlose" },
@@ -22,15 +23,14 @@ function StepOne({ goal, setGoal }) {
             <h1 className="text-2xl font-semibold">What is your fitness goal?</h1>
           </div>
           <div className="flex flex-col gap-3">
-            {buttonOptions.map((option) => (
+            {buttonOptions.map((option, index) => (
               <Button
-                key={option.value}
+                key={index}
                 ring={option.ring}
                 description={option.description}
                 value={option.value}
                 link="goal"
                 handleSelect={handleSelect}
-                isChecked={goal === option.value}  // Conditionally set the `checked` attribute
               />
             ))}
           </div>
@@ -38,4 +38,9 @@ function StepOne({ goal, setGoal }) {
       </div>
     </>
   );
+
+  
 }
+
+export default StepOne;
+

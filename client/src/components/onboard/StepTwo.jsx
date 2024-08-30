@@ -5,7 +5,6 @@ function StepTwo({ activityLevel, setActivityLevel }) {
     setActivityLevel(event.target.value);
   }
 
-  // Define your button options
   const buttonOptions = [
     { ring: "ring-gray-500", description: "Sedentary (little to no exercise)", value: "2" },
     { ring: "ring-gray-500", description: "Exercise 1-3 days/week", value: "3" },
@@ -22,15 +21,14 @@ function StepTwo({ activityLevel, setActivityLevel }) {
           <h1 className="text-2xl font-semibold">What is your activity level?</h1>
         </div>
         <div className="flex flex-col gap-3">
-          {buttonOptions.map((option) => (
+          {buttonOptions.map((option, index) => (
             <Button
-              key={option.value}
+              key={index}
               ring={option.ring}
               description={option.description}
               value={option.value}
               link="activity"
               handleSelect={handleSelect}
-              isChecked={activityLevel === option.value}  // Conditionally set the `checked` attribute
             />
           ))}
         </div>

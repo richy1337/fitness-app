@@ -1,4 +1,4 @@
-function Button({ ring, description, link, handleSelect, value, isChecked }) {
+function Button({ ring, description, link, handleSelect, value }) {
   return (
     <label className="cursor-pointer">
       <input
@@ -6,7 +6,6 @@ function Button({ ring, description, link, handleSelect, value, isChecked }) {
         className="peer sr-only"
         name={link}
         value={value}
-        checked={isChecked} // Controls if the radio button is selected
         onChange={handleSelect}
       />
       <div
@@ -21,3 +20,5 @@ function Button({ ring, description, link, handleSelect, value, isChecked }) {
     </label>
   );
 }
+
+export default Button;

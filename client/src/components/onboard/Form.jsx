@@ -10,10 +10,14 @@ import Navigation from "./Navigation";
 function Form() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [goal, setGoal] = useState();
+
+
   const [activityLevel, setActivityLevel] = useState();
+
   const [selectedHeight, setSelectedHeight] = useState(170); 
   const [selectedWeight, setSelectedWeight] = useState(70); 
   const [selectedAge, setSelectedAge] = useState(20);
+  
   const [sex, setSex] = useState()
 
   const steps = [
@@ -39,20 +43,23 @@ function Form() {
 
   
   return (
-    <div className="flex flex-col min-h-screen font-inter bg-gradient-to-r from-[#0E1729] to-[#1E2A42] p-6">
-      <ProgressBar currentIndex={currentIndex} />
+    <>
+      <div className="flex flex-col min-h-screen font-inter bg-gradient-to-r from-[#0E1729] to-[#1E2A42] p-6">
+        <ProgressBar currentIndex={currentIndex} />
 
-      <div className="flex-grow flex flex-col items-center justify-center">
-        {steps[currentIndex]}
+        <div className="flex-grow flex flex-col items-center justify-center">
+          {steps[currentIndex]}
+        </div>
+
+        <Navigation
+          steps={steps}
+          currentIndex={currentIndex}
+          incrementIndex={incrementIndex}
+          decrementIndex={decrementIndex}
+        />
       </div>
-
-      <Navigation
-        steps={steps}
-        currentIndex={currentIndex}
-        incrementIndex={incrementIndex}
-        decrementIndex={decrementIndex}
-      />
-    </div>
+    </>
+    
   );
 }
 
