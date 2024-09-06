@@ -6,13 +6,9 @@ function StepOne({ goal, setGoal }) {
   }
 
   const buttonOptions = [
-    { ring: "ring-gray-500", description: "Maintain Weight", value: "maintain" },
-    { ring: "ring-gray-500", description: "Mild Weight Loss", value: "mildlose" },
-    { ring: "ring-gray-500", description: "Weight Loss", value: "weightlose" },
-    { ring: "ring-gray-500", description: "Extreme Weight Loss", value: "extremelose" },
-    { ring: "ring-gray-500", description: "Mild Weight Gain", value: "mildgain" },
-    { ring: "ring-gray-500", description: "Weight Gain", value: "weightgain" },
-    { ring: "ring-gray-500", description: "Extreme Weight Gain", value: "extremegain" }
+    { ring: "ring-gray-500", description: "Maintain Weight", value: "maintainance" },
+    { ring: "ring-gray-500", description: "Weight Loss", value: "weight_loss" },
+    { ring: "ring-gray-500", description: "Weight Gain", value: "weight_gain" },
   ];
 
   return (
