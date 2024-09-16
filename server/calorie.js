@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import http from 'https';
 
 dotenv.config()
-const apiKey = process.env.CALORIE_API_KEY
+const apiKey = process.env.RAPID_API_KEY
 
 const calorie = async ({ age, weight, height, gender, activity_level, goal, equation }) => {
   return new Promise((resolve, reject) => {

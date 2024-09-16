@@ -22,6 +22,10 @@ app.get("/calculate", async (req, res) => {
   }
 });
 
+app.get("/search", async (req, res) => {
+  const {  } = req.query
+})
+
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });
